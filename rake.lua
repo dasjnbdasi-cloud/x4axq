@@ -1,4 +1,4 @@
--- velk 1.248
+-- x4axq 1.248
 local Players = game:GetService("Players")
 local Lighting = game:GetService("Lighting")
 local UIS = game:GetService("UserInputService")
@@ -13,14 +13,14 @@ local Terrain = workspace:FindFirstChildOfClass("Terrain")
 local LP = Players.LocalPlayer
 local PGui = LP:WaitForChild("PlayerGui")
 
-for _, n in ipairs({"velk_1_248","velk_1_248_Notifs","velk_1_248_ESP","velk_1_248_Vig","velk_1_248_Key"}) do
+for _, n in ipairs({"x4axq_1_248","x4axq_1_248_Notifs","x4axq_1_248_ESP","x4axq_1_248_Vig","x4axq_1_248_Key"}) do
     local e = PGui:FindFirstChild(n); if e then e:Destroy() end
 end
 for _, s in ipairs({"CUI_Mouse","CUI_Light","CUI_FOV","CUI_ESPDraw","CUI_Freecam","CUI_FPS","CUI_LockCam","CUI_SoundMute","CUI_Inspector"}) do
     pcall(function() RS:UnbindFromRenderStep(s) end)
 end
 for _, d in ipairs(workspace:GetDescendants()) do
-    if d.Name == "CUI_RakeHL" or d.Name == "velk_InspectorClone" then
+    if d.Name == "CUI_RakeHL" or d.Name == "x4axq_InspectorClone" then
         pcall(function() d:Destroy() end)
     end
 end
@@ -121,7 +121,7 @@ local function searchable(row, label, section)
 end
 
 -- Notifications
-local NG = I("ScreenGui", { Name="velk_1_248_Notifs", ResetOnSpawn=false, DisplayOrder=1000000, IgnoreGuiInset=true, ZIndexBehavior=Enum.ZIndexBehavior.Sibling, Parent=PGui })
+local NG = I("ScreenGui", { Name="x4axq_1_248_Notifs", ResetOnSpawn=false, DisplayOrder=1000000, IgnoreGuiInset=true, ZIndexBehavior=Enum.ZIndexBehavior.Sibling, Parent=PGui })
 local NH = I("Frame", { BackgroundTransparency=1, AnchorPoint=Vector2.new(1,0), Position=UDim2.new(1,-16,0,48), Size=UDim2.new(0,340,1,-64), Parent=NG })
 I("UIListLayout", { SortOrder=Enum.SortOrder.LayoutOrder, HorizontalAlignment=Enum.HorizontalAlignment.Right, VerticalAlignment=Enum.VerticalAlignment.Top, Padding=UDim.new(0,6), Parent=NH })
 local nOrder, nActive = 0, {}
@@ -189,7 +189,7 @@ end
 
 -- KEY GATE
 do
-    local KEY_FILE          = "velk_1_248_key.txt"
+    local KEY_FILE          = "x4axq_1_248_key.txt"
     local KEY_VALID_SECONDS = 24 * 60 * 60
     local CORRECT_KEY       = "x4axq_hn23"
     local MAX_ATTEMPTS      = 6
@@ -216,14 +216,14 @@ do
     end
 
     if not storedKeyIsValid() then
-        local oldPrompt = PGui:FindFirstChild("velk_1_248_Key")
+        local oldPrompt = PGui:FindFirstChild("x4axq_1_248_Key")
         if oldPrompt then oldPrompt:Destroy() end
 
         local signal   = Instance.new("BindableEvent")
         local attempts = 0
 
         local gui = I("ScreenGui", {
-            Name = "velk_1_248_Key", ResetOnSpawn = false,
+            Name = "x4axq_1_248_Key", ResetOnSpawn = false,
             DisplayOrder = 2000000, IgnoreGuiInset = true,
             ZIndexBehavior = Enum.ZIndexBehavior.Sibling, Parent = PGui,
         })
@@ -402,7 +402,7 @@ local function ensureTooltip(parent)
     return tooltipFrame
 end
 local function showTooltip(text, parent)
-    local host = parent or PGui:FindFirstChild("velk_1_248")
+    local host = parent or PGui:FindFirstChild("x4axq_1_248")
     if not host then return end
     local tf = ensureTooltip(host)
     tf.Text = text; tf.Visible = true
@@ -431,7 +431,7 @@ local function makeInfoIcon(parent, tooltipText)
     btn.MouseEnter:Connect(function()
         Tw(btn, 0.12, { BackgroundColor3 = THEME.Acc })
         Tw(btn, 0.12, { TextColor3 = Color3.new(1,1,1) })
-        showTooltip(tooltipText, PGui:FindFirstChild("velk_1_248"))
+        showTooltip(tooltipText, PGui:FindFirstChild("x4axq_1_248"))
     end)
     btn.MouseLeave:Connect(function()
         Tw(btn, 0.12, { BackgroundColor3 = TH.Off })
@@ -854,7 +854,7 @@ B("CUI_SoundMute", 99995, function()
 end)
 
 -- Vignette
-local vigGui = I("ScreenGui", { Name="velk_1_248_Vig", ResetOnSpawn=false, IgnoreGuiInset=true, DisplayOrder=999995, ZIndexBehavior=Enum.ZIndexBehavior.Sibling, Parent=PGui })
+local vigGui = I("ScreenGui", { Name="x4axq_1_248_Vig", ResetOnSpawn=false, IgnoreGuiInset=true, DisplayOrder=999995, ZIndexBehavior=Enum.ZIndexBehavior.Sibling, Parent=PGui })
 local vigFrames = {}
 for _, sd in ipairs({
     { name="top", pos=UDim2.new(0,0,0,0), size=UDim2.new(1,0,0,120), rot=90 },
@@ -1178,7 +1178,7 @@ local function chamsDisable()
 end
 
 -- ESP
-local espGui = I("ScreenGui", { Name="velk_1_248_ESP", ResetOnSpawn=false, IgnoreGuiInset=true, DisplayOrder=999998, ZIndexBehavior=Enum.ZIndexBehavior.Sibling, Parent=PGui })
+local espGui = I("ScreenGui", { Name="x4axq_1_248_ESP", ResetOnSpawn=false, IgnoreGuiInset=true, DisplayOrder=999998, ZIndexBehavior=Enum.ZIndexBehavior.Sibling, Parent=PGui })
 local bbg = {}
 local function ensureBBG(char)
     if bbg[char] then return bbg[char] end
@@ -1574,7 +1574,7 @@ end
 local W, H = 640, 680
 local THGT, TW = 28, 72
 
-local SG = I("ScreenGui", { Name="velk_1_248", ResetOnSpawn=false, DisplayOrder=999999, IgnoreGuiInset=true, ZIndexBehavior=Enum.ZIndexBehavior.Sibling, Parent=PGui })
+local SG = I("ScreenGui", { Name="x4axq_1_248", ResetOnSpawn=false, DisplayOrder=999999, IgnoreGuiInset=true, ZIndexBehavior=Enum.ZIndexBehavior.Sibling, Parent=PGui })
 local win = I("CanvasGroup", { BackgroundColor3=TH.Bg, BorderSizePixel=0, Position=UDim2.new(0,100,0,100),
     Size=UDim2.new(0,W,0,H), GroupTransparency=1, Parent=SG })
 themeIt(win, "BackgroundColor3", "Bg")
@@ -1632,7 +1632,7 @@ end
 -- MAIN
 do
     local mainScroll = tabScrolls["Main"]
-    local sec, c = Section(mainScroll, "velk 1.248", 1)
+    local sec, c = Section(mainScroll, "x4axq 1.248", 1)
     I("TextLabel", { BackgroundTransparency=1, Size=UDim2.new(1,0,0,120), Font=TH.F,
         Text="RightShift = UI\nRightControl = mouse\nLeftAlt = freecam\nC = toggle freecam\nRightAlt = shiftlock\nDelete = unload\n\nHover ⓘ icons for explanations.",
         TextColor3=TH.TxtD, TextSize=12, TextXAlignment=Enum.TextXAlignment.Left,
@@ -1925,7 +1925,7 @@ do
     local function makeClone(source)
         if not source or not source:IsA("Model") then return nil end
         local clone = source:Clone()
-        clone.Name = "velk_InspectorClone"
+        clone.Name = "x4axq_InspectorClone"
 
         for _, d in ipairs(clone:GetDescendants()) do
             if d:IsA("Script") or d:IsA("LocalScript") or d:IsA("ModuleScript") then
@@ -1964,10 +1964,10 @@ do
             hum.DisplayDistanceType = Enum.HumanoidDisplayDistanceType.None
         end
 
-        local folder = workspace:FindFirstChild("velk_Inspector")
+        local folder = workspace:FindFirstChild("x4axq_Inspector")
         if not folder then
             folder = Instance.new("Folder")
-            folder.Name = "velk_Inspector"
+            folder.Name = "x4axq_Inspector"
             folder.Parent = workspace
         end
 
@@ -2124,7 +2124,7 @@ do
 
         destroyClone()
 
-        local folder = workspace:FindFirstChild("velk_Inspector")
+        local folder = workspace:FindFirstChild("x4axq_Inspector")
         if folder then
             for _, ch in ipairs(folder:GetChildren()) do
                 pcall(function() ch:Destroy() end)
@@ -2292,7 +2292,7 @@ end
 -- CONFIG
 do
     local cfgScroll = tabScrolls["Config"]
-    local CONFIG_FOLDER = "velk_1_248_Configs"
+    local CONFIG_FOLDER = "x4axq_1_248_Configs"
     local hasIO = (typeof(writefile) == "function") and (typeof(readfile) == "function")
     local function ensureFolder()
         if typeof(isfolder) == "function" and typeof(makefolder) == "function" then
@@ -2338,7 +2338,7 @@ do
 
     local sec, c = Section(cfgScroll, "Config Manager", 1)
     I("TextLabel", { BackgroundTransparency=1, Size=UDim2.new(1,0,0,30), Font=TH.F,
-        Text=hasIO and "Ready. Saves to velk_1_248_Configs/." or "writefile not available in this executor.",
+        Text=hasIO and "Ready. Saves to x4axq_1_248_Configs/." or "writefile not available in this executor.",
         TextColor3=hasIO and TH.TxtD or TH.Warn, TextSize=11,
         TextXAlignment=Enum.TextXAlignment.Left, TextYAlignment=Enum.TextYAlignment.Top,
         TextWrapped=true, Parent=c })
@@ -2744,11 +2744,11 @@ function unload()
     for _, d in ipairs(workspace:GetDescendants()) do
         if d.Name == "CUI_RakeHL" then pcall(function() d:Destroy() end) end
         if d.Name == "CUI_BBG" then pcall(function() d:Destroy() end) end
-        if d.Name == "velk_InspectorClone" then pcall(function() d:Destroy() end) end
+        if d.Name == "x4axq_InspectorClone" then pcall(function() d:Destroy() end) end
     end
-    local insFolder = workspace:FindFirstChild("velk_Inspector")
+    local insFolder = workspace:FindFirstChild("x4axq_Inspector")
     if insFolder then pcall(function() insFolder:Destroy() end) end
-    for _, name in ipairs({"velk_1_248", "velk_1_248_Notifs", "velk_1_248_ESP", "velk_1_248_Vig", "velk_1_248_Key"}) do
+    for _, name in ipairs({"x4axq_1_248", "x4axq_1_248_Notifs", "x4axq_1_248_ESP", "x4axq_1_248_Vig", "x4axq_1_248_Key"}) do
         local g = PGui:FindFirstChild(name)
         if g then pcall(function() g:Destroy() end) end
     end
@@ -2768,5 +2768,5 @@ win.Position = UDim2.new(cur.X.Scale, cur.X.Offset, cur.Y.Scale, cur.Y.Offset + 
 Tw(win, 0.28, { GroupTransparency=0, Position=UDim2.new(cur.X.Scale, cur.X.Offset, cur.Y.Scale, cur.Y.Offset) }, Enum.EasingStyle.Quint)
 setActiveTab("Main")
 task.delay(0.5, function()
-    Notify("velk 1.248", "Rake x4axq BETA Hover ⓘ for descriptions.", "ok", 4)
+    Notify("x4axq 1.248", "Rake x4axq BETA Hover ⓘ for descriptions.", "ok", 4)
 end)
